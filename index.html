@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shadowrift Randomizer</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    </head>
+
+    <body>
+
+        <h1>Shadowrift Randomizer</h1>
+
+        <ul id="cardList">
+        </ul>
+
+        <button>New Cards</button>
+
+        <script>
+
+            $(document).ready(function() {
+                el = $('#cardList');
+
+                $.ajax({
+                  method: "GET",
+                  url: "scripts/data.json",
+                  dataType: "json"
+                });
+            })
+        </script>
+
+    </body>
+</html>
