@@ -7,6 +7,8 @@
 
     <body>
 
+
+
         <h1>Shadowrift Randomizer</h1>
 
         <ul id="cardList">
@@ -17,12 +19,18 @@
         <script>
 
             $(document).ready(function() {
-                el = $('#cardList');
+                var list = $('#cardList');
 
-                $.ajax({
-                  method: "GET",
-                  url: "scripts/data.json",
-                  dataType: "json"
+                $.getJSON( "ajax/test.json", function( data ) {
+                  var items = [];
+                  $.each( data, function( key, val ) {
+                    items.push( "<li id='" + key + "'>" + val + "</li>" );
+                  });
+                 
+                  $( "<ul/>", {
+                    "class": "my-new-list",
+                    html: items.join( "" )
+                  }).appendTo( "body" );
                 });
             })
         </script>
