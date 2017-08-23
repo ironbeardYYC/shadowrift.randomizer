@@ -20,14 +20,10 @@
 
             $(document).ready(function() {
                 var list = $('#cardList');
-
-                $("#btnRefresh").on("click", function() {
-                    refresh();
-                }); 
+                var heroes = [];
+                var monsters = [];
 
                 $.getJSON( "data.json", function( data ) {
-                    var heroes = [];
-                    var monsters = [];
                     $.each( data, function( index, value ) {
                         if(value.type === "monster") { // seperate monsters
                             monsters.push(value);
@@ -39,34 +35,35 @@
 
                     generateMonsters(monsters);
                     generateHeroCards(heroes);
-
                 });
+
+                $("#btnRefresh").on("click", function() {
+                    list.html("");
+                    generateMonsters(monsters);
+                    generateHeroCards(heroes);
+                }); 
 
                 function generateMonsters(monsters) {
                     var i = Math.floor(Math.random()*monsters.length); 
+
                     list.html("<li class='monster'>" + monsters[i].card + "</li>");
                 };
 
                 function generateHeroCards(heroes) {
                     var heroHtml = [];
-                    while( heroes.length > 8) {
-                        heroes.splice(Math.floor(Math.random()*heroes.length), 1);
+                    var heroList = heroes.slice();
+
+                    while( heroList.length > 8) {
+                        heroList.splice(Math.floor(Math.random()*heroList.length), 1);
                     }
 
-                    $.each( heroes, function( index, value ) {
+                    $.each( heroList, function( index, value ) {
                         heroHtml.push("<li>" + value.type + ": " + value.card + "</li>");
                     });
 
                     heroHtml = heroHtml.join("")
-
                     list.append(heroHtml);
                 };
-
-                function refresh(monsters,heroes) {
-                    list.html("");
-                    generateMonsters(monsters);
-                    generateHeroCards(heroes);
-                }
             })
         </script>
 
