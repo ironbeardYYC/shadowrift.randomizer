@@ -1,102 +1,102 @@
 [
     { 
-        "type": "skill",
-        "card": "Bamboozle"
+        "card": "Bamboozle",
+        "type": "Skill"
     },
     { 
-        "type": "skill",
-        "card": "Brawler"
+        "card": "Brawler",
+        "type": "Skill"
     },
     { 
-        "type": "skill",
-        "card": "Flanking"
+        "card": "Flanking",
+        "type": "Skill"
     },
     { 
-        "type": "skill",
-        "card": "Frenzy"
+        "card": "Frenzy",
+        "type": "Skill"
     },
     { 
-        "type": "skill",
-        "card": "Holy Aura"
+        "card": "Holy Aura",
+        "type": "Skill"
     },
     { 
-        "type": "action",
-        "card": "Heal"
+        "card": "Heal",
+        "type": "Action"
     },
     { 
-        "type": "action",
-        "card": "Prophecy"
+        "card": "Prophecy",
+        "type": "Action"
     },
     { 
-        "type": "action",
-        "card": "Resurrect"
+        "card": "Resurrect",
+        "type": "Action"
     },
     { 
-        "type": "action",
-        "card": "Revitalize"
+        "card": "Revitalize",
+        "type": "Action"
     },
     { 
-        "type": "action",
-        "card": "Rousing Speech"
+        "card": "Rousing Speech",
+        "type": "Action"
     },
     {
         "card": "Blessed Smite",
-        "type": "attack"
+        "type": "Attack"
     },
     {
         "card": "Fireball",
-        "type": "attack"
+        "type": "Attack"
     },
     {
         "card": "Leading Strike",
-        "type": "attack"
+        "type": "Attack"
     },
     {
         "card": "Spear Volley",
-        "type": "attack"
+        "type": "Attack"
     },
     {
         "card": "Thieving Strike",
-        "type": "attack"
+        "type": "Attack"
     },
     {
         "card": "Wild Charge",
-        "type": "attack"
+        "type": "Attack"
     },
     {
         "card": "Armor of Mist",
-        "type": "loot"
+        "type": "Loot"
     },
     {
         "card": "Elixer of Life",
-        "type": "loot"
+        "type": "Loot"
     },
     {
         "card": "Lightning Daggers",
-        "type": "loot"
+        "type": "Loot"
     },
     {
         "card": "Shining Blade",
-        "type": "loot"
+        "type": "Loot"
     },
     {
         "card": "Demons",
-        "type": "monster"
+        "type": "Monster"
     },
     {
         "card": "Fire Dragons",
-        "type": "monster"
+        "type": "Monster"
     },
     {
         "card": "Glacien",
-        "type": "monster"
+        "type": "Monster"
     },
     {
         "card": "Necromancers",
-        "type": "monster"
+        "type": "Monster"
     },
     {
         "card": "Storm Lords",
-        "type": "monster"
+        "type": "Monster"
     }
 ] 
