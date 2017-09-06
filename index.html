@@ -5,81 +5,10 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://cdn.shoelace.style/1.0.0-beta18/shoelace.js"></script>
         <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta18/shoelace.css">
-
-        <style>
-            html {
-                height: 100%;
-            }
-
-            body {
-                height: 100%;
-                margin: 0;
-                padding: 1rem 0 0;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-            }
-
-            .shadow-rando {
-                color: #fff;
-                margin: 0 auto;
-                text-align: center;
-                width: 300px;
-            }
-
-            #cardList {
-                list-style: none;
-                padding: 0;
-            }
-
-            #cardList > li {
-                text-transform: capitalize;
-            }
-            .demons {
-                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,78007c+100 */
-                background: #000000; /* Old browsers */
-                background: -moz-linear-gradient(top, #000000 0%, #78007c 100%); /* FF3.6-15 */
-                background: -webkit-linear-gradient(top, #000000 0%,#78007c 100%); /* Chrome10-25,Safari5.1-6 */
-                background: linear-gradient(to bottom, #000000 0%,#78007c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#78007c',GradientType=0 ); /* IE6-9 */
-            }
-            .fire {
-                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,ff1a00+73,f97400+100 */
-                background: #000000; /* Old browsers */
-                background: -moz-linear-gradient(top, #000000 0%, #ff1a00 73%, #f97400 100%); /* FF3.6-15 */
-                background: -webkit-linear-gradient(top, #000000 0%,#ff1a00 73%,#f97400 100%); /* Chrome10-25,Safari5.1-6 */
-                background: linear-gradient(to bottom, #000000 0%,#ff1a00 73%,#f97400 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#f97400',GradientType=0 ); /* IE6-9 */
-            }
-            .glacien {
-                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,eeeeee+100 */
-                background: #000000; /* Old browsers */
-                background: -moz-linear-gradient(top, #000000 0%, #eeeeee 100%); /* FF3.6-15 */
-                background: -webkit-linear-gradient(top, #000000 0%,#eeeeee 100%); /* Chrome10-25,Safari5.1-6 */
-                background: linear-gradient(to bottom, #000000 0%,#eeeeee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
-            }
-            .necro {
-                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,3f3f3f+100 */
-                background: #000000; /* Old browsers */
-                background: -moz-linear-gradient(top, #000000 0%, #3f3f3f 100%); /* FF3.6-15 */
-                background: -webkit-linear-gradient(top, #000000 0%,#3f3f3f 100%); /* Chrome10-25,Safari5.1-6 */
-                background: linear-gradient(to bottom, #000000 0%,#3f3f3f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#3f3f3f',GradientType=0 ); /* IE6-9 */
-            }
-            .storm {
-                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,22236b+100 */
-                background: #000000; /* Old browsers */
-                background: -moz-linear-gradient(top, #000000 0%, #22236b 100%); /* FF3.6-15 */
-                background: -webkit-linear-gradient(top, #000000 0%,#22236b 100%); /* Chrome10-25,Safari5.1-6 */
-                background: linear-gradient(to bottom, #000000 0%,#22236b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#22236b',GradientType=0 ); /* IE6-9 */
-            }
-
-
-        </style>
+        <link rel="stylesheet" href="styles.css">
     </head>
 
-    <body class="necro">
+    <body>
 
         <div class="shadow-rando">
             <h1>Shadowrift Randomizer</h1>
@@ -91,56 +20,7 @@
             <button id="btnRefresh">New Cards</button>
         </div><!--/.shadow-rando-->
 
-        <script>
-
-            $(document).ready(function() {
-                var list = $('#cardList');
-                var heroes = [];
-                var monsters = [];
-
-                $.getJSON( "data.json", function( data ) {
-                    $.each( data, function( index, value ) {
-                        if(value.type === "Monster") { // seperate monsters
-                            monsters.push(value);
-                        }
-                        else {
-                            heroes.push(value); // seperate hero cards
-                        }
-                    });
-
-                    generateMonsters(monsters);
-                    generateHeroCards(heroes);
-                });
-
-                $("#btnRefresh").on("click", function() {
-                    list.html("");
-                    generateMonsters(monsters);
-                    generateHeroCards(heroes);
-                }); 
-
-                function generateMonsters(monsters) {
-                    var i = Math.floor(Math.random()*monsters.length); 
-
-                    list.html("<li class='monster'>" + monsters[i].card + "</li>");
-                };
-
-                function generateHeroCards(heroes) {
-                    var heroHtml = [];
-                    var heroList = heroes.slice();
-
-                    while( heroList.length > 8) {
-                        heroList.splice(Math.floor(Math.random()*heroList.length), 1);
-                    }
-
-                    $.each( heroList, function( index, value ) {
-                        heroHtml.push("<li>" + value.type + ": " + value.card + "</li>");
-                    });
-
-                    heroHtml = heroHtml.join("")
-                    list.append(heroHtml);
-                };
-            })
-        </script>
+        <script src="scripts/scripts.js"></script>
 
     </body>
 </html>
