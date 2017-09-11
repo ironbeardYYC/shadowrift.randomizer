@@ -84,6 +84,10 @@
         "type": "Monster"
     },
     {
+        "card": "Drow",
+        "type": "Monster"
+    },
+    {
         "card": "Fire Dragons",
         "type": "Monster"
     },
